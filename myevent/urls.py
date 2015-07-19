@@ -18,5 +18,6 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_view
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls))
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', 'events.views.home', name='home'),
 ]
