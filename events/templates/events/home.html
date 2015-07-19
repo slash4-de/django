@@ -28,17 +28,6 @@
 
 							</div>
 							<div class="navbar simple">
-
-								<!--== Navigation Menu ==-->
-								<ul class="nav navbar-nav">									
-									{% if request.user.is_authenticated %}
-									<li><a href="#">Welcome {{request.user.username}}</a></li>
-									<li><a href="/logout/">Log out</a></li>
-									{% else %}
-									<li><a href="/login/">Sign In</a></li>
-									<li><a href="/register/">Register</a></li>
-									{% endif %}
-								</ul>
 							</div>
 						</nav>
 					</div>
@@ -50,25 +39,25 @@
 				<div class="container">
 					<div class="timeline-panel">
 			            <div class="timeline-heading">
-			                <h4>Event One</h4>
+			                <h4>My Event Two</h4>
 			            </div>
 			            <div class="timeline-body">
 			                <p class="timeline-desc col-md-6">Invitamus me testatur sed quod non dum animae tuae lacrimis ut libertatem deum rogus aegritudinis causet. Dicens hoc contra serpentibus isto.</p>
 			                <p class="timeline-other col-md-6">
 			                	<em class="timeline-item">
-			                	 Venue : Adeleade
+			                	 Venue : Wembley Arena
 			                	</em> 
 			                	<em class="timeline-item">
-			                	Seats : 25
+			                	Seats : 12,500
 			                	</em>
 			                	<em class="timeline-item">
-			                	Ticket: $35 
+			                	Ticket: $70.00 
 			                	</em>
 			                	<em class="timeline-item">
-			                	Date : Feb-21-2014
+			                	Date : Feb-21-2015
 			                	</em>
 			                	<em class="timeline-item">
-			                	Duration : 5days
+			                	Duration : 3 hours
 			                	</em>
 			                </p>
 			            </div>
