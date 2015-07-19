@@ -1,0 +1,102 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+		<title>Event - Landing Page</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>  
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="description" content="">
+
+		<!--== CSS Files ==-->
+		<link href="{% static "css/bootstrap.css" %}" rel="stylesheet" media="screen">
+		<link href="{% static "css/style.css" %}" rel="stylesheet" media="screen">
+
+	</head>
+	<body>
+		<header id="header">
+			<div id="menu" class="header-menu fixed">
+				<div class="box">
+					<div class="row">
+						<nav role="navigation" class="col-sm-12">
+							<div class="navbar-header">
+
+								<!--== Logo ==-->
+								<span class="navbar-brand logo">
+									Event Site
+								</span>
+
+							</div>
+							<div class="navbar simple">
+
+								<!--== Navigation Menu ==-->
+								<ul class="nav navbar-nav">									
+									{% if request.user.is_authenticated %}
+									<li><a href="#">Welcome {{request.user.username}}</a></li>
+									<li><a href="/logout/">Log out</a></li>
+									{% else %}
+									<li><a href="/login/">Sign In</a></li>
+									<li><a href="/register/">Register</a></li>
+									{% endif %}
+								</ul>
+							</div>
+						</nav>
+					</div>
+				</div>
+			</div>
+
+			<!--== Site Description ==-->
+			<div class="myt">
+				<div class="container">
+					<div class="timeline-panel">
+			            <div class="timeline-heading">
+			                <h4>Event One</h4>
+			            </div>
+			            <div class="timeline-body">
+			                <p class="timeline-desc col-md-6">Invitamus me testatur sed quod non dum animae tuae lacrimis ut libertatem deum rogus aegritudinis causet. Dicens hoc contra serpentibus isto.</p>
+			                <p class="timeline-other col-md-6">
+			                	<em class="timeline-item">
+			                	 Venue : Adeleade
+			                	</em> 
+			                	<em class="timeline-item">
+			                	Seats : 25
+			                	</em>
+			                	<em class="timeline-item">
+			                	Ticket: $35 
+			                	</em>
+			                	<em class="timeline-item">
+			                	Date : Feb-21-2014
+			                	</em>
+			                	<em class="timeline-item">
+			                	Duration : 5days
+			                	</em>
+			                </p>
+			            </div>
+			        </div>
+		       </div>
+	       </div>
+			<!-- Site Search box -->
+			<div class="header-cta">
+				<div class="container">
+				</div>
+			</div>
+
+			<div class="header-bg">
+				<div class="banner" id="banner">
+					<img src="{% static "images/demo/bg-slide-01.jpg" %}" alt="Slide Image"/>
+				</div>
+			</div>
+		</header>
+		</div>
+		<footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p class="copyright"> &copy; Copyright slash4</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+	</body>
+</html>
