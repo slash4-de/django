@@ -10,6 +10,10 @@ class Event(models.Model):
         decimal_places=2
     )
     date = models.DateTimeField()
+    duration = models.CharField(
+        max_length=20,
+        help_text=_('e.g. 3 hours, 5 days')
+    )
 
     def __str__(self):
         return "%s" % self.title
