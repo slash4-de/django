@@ -1626,11 +1626,9 @@ font-weight: bold;
 }
 .lstye{
   padding: 7px 15px;
-  border: 1px solid #f1f1f1;
   color: #37788a;
   text-transform: uppercase;
   font-weight: bold;
-  border-radius: 4px;
   margin-top: 20px;
   z-index: 33;
 }
