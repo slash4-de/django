@@ -1632,12 +1632,10 @@ font-weight: bold;
   font-weight: bold;
   border-radius: 4px;
   margin-top: 20px;
-}
-
-.lstye.home{
-  background: rgba(197, 239, 247, 0.7);
-  position: absolute;
-  margin-top: 0;
-  /*padding: 7px 15px;*/
   z-index: 33;
 }
+
+.navbar.simple{
+  z-index: -33;
+}
+
