@@ -10,3 +10,6 @@ class Event(models.Model):
         decimal_places=2
     )
     date = models.DateTimeField()
+
+    def __str__(self):
+        return "%s" % self.title
