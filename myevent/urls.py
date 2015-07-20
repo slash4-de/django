@@ -20,4 +20,5 @@ from django.contrib.auth import views as auth_view
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'events.views.home', name='home'),
+    url(r'^events/$', 'events.views.list', name='event_list'),
 ]
