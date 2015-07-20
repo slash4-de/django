@@ -1,6 +1,89 @@
-<h1>Events</h1>
-<ul>
-{% for event in event_list %}
-	<li>{{event.title}}</li>
-{% endfor %}
-<ul>
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+	
+	<head>
+		<title>Event - Landing Page</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>  
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="description" content="">
+
+		<link href="{% static "css/bootstrap.css" %}" rel="stylesheet" media="screen">
+		<link href="{% static "css/style.css" %}" rel="stylesheet" media="screen">
+		<link href="{% static "css/font-awesome.css" %}" rel="stylesheet" media="screen">
+		<link href="{% static "css/responsive.css" %}" rel="stylesheet" media="screen">
+	</head>
+	<body>
+		<header id="header">
+			<div id="menu" class="header-menu fixed browser">
+				<div class="box">
+					<div class="row">
+						<nav role="navigation" class="col-sm-12">
+							<div class="navbar-header">
+								<span class="navbar-brand logo">
+									MyEvent
+								</span>
+
+							</div>
+						</nav>
+					</div>
+				</div>
+			</div>
+
+		</header>
+
+		
+		<div class="content">
+			<div class="container box">
+
+				<section id="schedule" class="row">
+				<div class="title-start schedule-menu col-md-4 col-md-offset-4">
+				<br />
+					<h2>Events Schedule</h2>
+					<p class="sub-text text-center">Check out the event details</p>
+				</div>
+					<ul class="timeline">
+						{% for event in event_list %}
+					    <li {% if forloop.counter|divisibleby:2 %} class="timeline-inverted"{% endif %}>
+					        <div class="timeline-badge">
+					          <a><i class="fa fa-circle" id=""></i></a>
+					        </div>
+					        <div class="timeline-panel">
+					            <div class="timeline-heading">
+					                <h4><a href="{% url 'event_detail' event.id %}">{{event.title}}</a></h4>
+					            </div>
+					            <div class="timeline-body">
+					                <p class="timeline-desc col-md-6">{{event.description}}</p>
+					                <p class="timeline-other col-md-6">
+					                	
+					                	<em class="timeline-item">
+					                	 Venue : {{event.venue}}
+					                	</em> 
+					                	<em class="timeline-item">
+					                	Ticket: {{event.amount}}
+					                	</em>
+					                	<em class="timeline-item">
+					                	Date : {{event.date}}
+					                	</em>
+					                </p>
+					            </div>
+					        </div>
+					    </li>
+					    {% endfor %}
+					    <li class="clearfix no-float"></li>
+					</ul>
+				</section>
+			</div>
+		</div>
+		<footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p class="copyright"> &copy; Copyright slash4</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+	</body>
+</html>
