@@ -1618,3 +1618,22 @@ font-weight: bold;
 .errorlist{
   color: red;
 }
+
+.style{
+  float: left;
+  margin-top: 12px;
+  margin-left: 50px;
+}
+.lstye{
+  padding: 7px 15px;
+  color: #37788a;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 20px;
+  z-index: 33;
+}
+
+.navbar.simple{
+  z-index: -33;
+}
+
