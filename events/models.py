@@ -12,7 +12,7 @@ class Event(models.Model):
     date = models.DateTimeField()
     duration = models.CharField(
         max_length=20,
-        help_text=_('e.g. 3 hours, 5 days')
+        help_text='e.g. 3 hours, 5 days'
     )
 
     def __str__(self):
