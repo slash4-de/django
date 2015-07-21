@@ -42,30 +42,30 @@
 				<div class="container">
 					<div class="timeline-panel">
 			            <div class="timeline-heading">
-			                <h4>Event One</h4>
+			                <h4><a href="{% url 'event_detail' event.id %}">{{ event.title }}</a></h4>
 			            </div>
 			            <div class="timeline-body">
-			                <p class="timeline-desc col-md-6">Invitamus me testatur sed quod non dum animae tuae lacrimis ut libertatem deum rogus aegritudinis causet. Dicens hoc contra serpentibus isto.</p>
+			                <p class="timeline-desc col-md-6">{{event.description | truncatewords:20}}</p>
 			                <p class="timeline-other col-md-6">
 			                	<em class="timeline-item">
-			                	 Venue : Adeleade
+			                	 Venue: {{ event.venue }}
 			                	</em> 
 			                	<em class="timeline-item">
-			                	Seats : 25
+			                	Seats: {{ event.seats }}
 			                	</em>
 			                	<em class="timeline-item">
-			                	Ticket: $35 
+			                	Ticket: {{ event.amount }}
 			                	</em>
 			                	<em class="timeline-item">
-			                	Date : Feb-21-2014
+			                	Date: {{ event.date }}
 			                	</em>
 			                	<em class="timeline-item">
-			                	Duration : 5days
+			                	Duration: {{ event.duration }}
 			                	</em>
 			                </p>
-			            </div>
-			        </div>
-		       </div>
+				        </div>
+				    </div>
+			    </div>
 	       </div>
 			<!-- Site Search box -->
 			<div class="header-cta">
@@ -89,6 +89,5 @@
                 </div>
             </div>
         </footer>
-
 	</body>
 </html>

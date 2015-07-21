@@ -1,9 +1,14 @@
+from  datetime import datetime
 from django.shortcuts import render
 
 from .models import Event
 
 def home(request):
-    return render(request, 'events/home.html')
+    try:
+        event = Event.objects.filter(date__gt=datetime.now()).order_by('date')[:1][0]
+    except:
+        event = []
+    return render(request, 'events/home.html', {'event': event})
 
 def list(request):
    event_list = Event.objects.all();
