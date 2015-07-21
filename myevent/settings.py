@@ -57,7 +57,7 @@ ROOT_URLCONF = 'myevent.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'template', 'html')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -83,10 +83,6 @@ DATABASES = {
     }
 }
 
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'template', 'static'),
-)
 
 
 # Internationalization
