@@ -32,8 +32,12 @@
 							</div>
 							<div class="navbar simple">
 								<ul class="nav navbar-nav">
-									<li><a href="/register/">Register</a></li>
-									<li><a href="/login/">Sign In</a></li>
+									{% if request.user.is_authenticated %}
+						            <li><a href="#">Welcome {{request.user.username}}</a></li>
+						            {% else %}
+						            <li><a href="/login/">Sign In</a></li>
+						            <li><a href="/register/">Register</a></li>
+						            {% endif %}
 								</ul>
 							</div>
 						</nav>
