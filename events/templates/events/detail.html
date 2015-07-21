@@ -1,63 +1,31 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-	
-	<head>
-		<title>Event - Landing Page</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>  
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<meta name="description" content="">
+{% extends 'base.html' %}
+{% block 'content' %}
+	<section id="single" class="row">
+		<div class="event-detail col-sm-8">
+			<h2>{{event.title}}</h2>
+			<strong>Date: {{event.date}}</strong> <br />
+        	<strong>Venue : {{event.venue}}</strong> <br />
+        	<strong>Ticket Price: {{event.amount}}</strong> <br />
+        	<strong>Seats Capacity : {{event.seats}}</strong> <br />
+        	<strong>Duration : {{event.date}}</strong> <br />
+			
+			<p>{{event.description}}</p>
+		</div>
+		<div class="barleft col-sm-4">
+			<p clss="msg">{% if request.GET.msg %} {{request.GET.msg }} {% endif %}</p>
+			{% if joined %}
+			<a href="{% url 'event_cancel' event.id %}" class="btn join">Not Attend</a>
+			{% else %}
+			<a href="{% url 'event_join' event.id %}" class="btn join">Attend</a>
+			{% endif %}
 
-		<link href="{% static "css/bootstrap.css" %}" rel="stylesheet" media="screen">
-		<link href="{% static "css/style.css" %}" rel="stylesheet" media="screen">
-		<link href="{% static "css/font-awesome.css" %}" rel="stylesheet" media="screen">
-		<link href="{% static "css/responsive.css" %}" rel="stylesheet" media="screen">
-	</head>
-	<body>
-		<header id="header">
-			<div id="menu" class="header-menu fixed browser">
-				<div class="box">
-					<div class="row">
-						<nav role="navigation" class="col-sm-12">
-							<div class="navbar-header">
-								<span class="navbar-brand logo">
-									<a href="/">MyEvent</a>
-								</span>
-								<span class="style">
-									<a class="lstye" href="/events/">Browse</a>
-								</span>
-							</div>
-						</nav>
-					</div>
-				</div>
-			</div>
-		</header>
-
-		<div class="content">
-			<div class="container box">
-				<section id="single" class="row">
-					<div class="event-detail col-sm-8">
-						<h2>{{event.title}}</h2>
-						<strong>Date: {{event.date}}</strong> <br />
-	                	<strong>Venue : {{event.venue}}</strong> <br />
-	                	<strong>Ticket Price: {{event.amount}}</strong> <br />
-	                	<strong>Seats Capacity : {{event.seats}}</strong> <br />
-	                	<strong>Duration : {{event.date}}</strong> <br />
-						
-						<p>{{event.description}}</p>
-					</div>
-				</section>
-				</div>
+			<div class="user">
+				<ul>
+					{% for guest in event.guest.all %}
+					<li> {{ guest.username }} </li>
+					{% endfor %}
+				</ul>
 			</div>
 		</div>
-		<footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <p class="copyright"> &copy; Copyright slash4</p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-	</body>
-</html>
+	</section>
+{% endblock %}
