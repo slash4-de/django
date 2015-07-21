@@ -1,5 +1,7 @@
 from  datetime import datetime
 from django.shortcuts import render
+from django.contrib.auth.forms import UserCreationForm
+from django.http import HttpResponseRedirect
 
 from .models import Event
 
@@ -11,9 +13,21 @@ def home(request):
     return render(request, 'events/home.html', {'event': event})
 
 def list(request):
-   event_list = Event.objects.all();
-   return render(request, 'events/list.html', {'event_list': event_list})
+    event_list = Event.objects.all().order_by('date');
+    return render(request, 'events/list.html', {'event_list': event_list})
 
 def detail(request, id):
-   event = Event.objects.get(id=id)
-   return render(request, 'events/detail.html', {'event': event})
+    event = Event.objects.get(id=id)
+    return render(request, 'events/detail.html', {'event': event})
+
+def register(request):
+    if request.method == 'POST':
+       form = UserCreationForm(request.POST)
+       if form.is_valid():
+           new_user = form.save()
+           return HttpResponseRedirect("/")
+    else:
+       form = UserCreationForm()
+    return render(request, "users/register.html", {
+       'form': form,
+    })
