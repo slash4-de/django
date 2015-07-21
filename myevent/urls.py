@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^events/$', 'events.views.list', name='event_list'),
     url(r'^events/(?P<id>\d+)/$', 'events.views.detail', name='event_detail'),
 
-    url(r'^register/$', 'events.views.register', name='register')
+    url(r'^register/$', 'events.views.register', name='register'),
+    url(r'^login/$', auth_view.login, name='login', kwargs={'template_name': 'users/login.html'}),
 ]
