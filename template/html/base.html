@@ -26,16 +26,6 @@
 							</div>
 
 							<div class="navbar-collapse collapse">
-								<ul class="nav navbar-nav">
-									{% if request.user.is_authenticated %}
-									<li><a href="#">Welcome {{request.user.username}}</a></li>
-									<li><a href="{% url 'user_event' request.user.id %}">My Events</a></li>
-									<li><a href="/logout/">Log out</a></li>
-									{% else %}
-									<li><a href="/login/">Sign In</a></li>
-									<li><a href="/register/">Register</a></li>
-									{% endif %}
-								</ul>
 							</div>
 						</nav>
 					</div>
