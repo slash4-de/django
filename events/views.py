@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect
 
 from django.contrib.auth.decorators import login_required
+from django.core.urlresolvers import reverse
 
 from .models import Event
 
