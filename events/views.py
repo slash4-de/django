@@ -3,6 +3,8 @@ from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect
 
+from django.contrib.auth.decorators import login_required
+
 from .models import Event
 
 def home(request):
@@ -31,3 +33,22 @@ def register(request):
     return render(request, "users/register.html", {
        'form': form,
     })
+
+@login_required
+def join(request, event_id):
+    try:
+        # already joined
+        event = Event.objects.get(id=event_id, guest=request.user)
+        message = "You have already joined this event"
+    except Event.DoesNotExist as e:
+        # Event exist but joined
+        try:
+            event = Event.objects.get(id=event_id)
+            event.guest.add(request.user)
+            event.save()
+            message = "You have joined this event"
+        except Event.DoesNotExist as e:
+            message = "Error on event joining"
+
+    url = "%s?msg=%s" % (reverse('event_detail', args=[event_id]), message)
+    return HttpResponseRedirect(url)

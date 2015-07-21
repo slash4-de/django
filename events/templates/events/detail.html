@@ -12,6 +12,8 @@
 			<p>{{event.description}}</p>
 		</div>
 		<div class="barleft col-sm-4">
+            <p clss="msg">{% if request.GET.msg %} {{request.GET.msg }} {% endif %}</p>
+            <a href="{% url 'event_join' event.id %}" class="btn join">Yes, Attend</a>
 		</div>
 	</section>
 {% endblock %}

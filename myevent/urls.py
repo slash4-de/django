@@ -25,4 +25,6 @@ urlpatterns = [
 
     url(r'^register/$', 'events.views.register', name='register'),
     url(r'^login/$', auth_view.login, name='login', kwargs={'template_name': 'users/login.html'}),
+
+    url(r'^events/join/(?P<event_id>\d+)/$', 'events.views.join', name='event_join'),
 ]
