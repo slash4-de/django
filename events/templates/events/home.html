@@ -34,6 +34,7 @@
 								<ul class="nav navbar-nav">
 									{% if request.user.is_authenticated %}
 						            <li><a href="#">Welcome {{request.user.username}}</a></li>
+						            <li><a href="/logout/">Log out</a></li>
 						            {% else %}
 						            <li><a href="/login/">Sign In</a></li>
 						            <li><a href="/register/">Register</a></li>
