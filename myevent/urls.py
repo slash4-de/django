@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'events.views.home', name='home'),
     url(r'^events/$', 'events.views.list', name='event_list'),
+    url(r'^events/(?P<id>\d+)/$', 'events.views.detail', name='event_detail')
 ]
