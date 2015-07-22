@@ -109,4 +109,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_URL = "/login"
+<<<<<<< HEAD
 LOGIN_REDIRECT_URL = "/"
+=======
+LOGIN_REDIRECT_URL = "/"
+>>>>>>> day-4-step-3
