@@ -18,6 +18,14 @@
             {% else %}
             <a href="{% url 'event_cancel' event.id %}" class="btn join">No, Not Attend</a>
             {% endif %}
+
+            <div class="user">
+                <ul>
+                    {% for guest in event.guest.all %}
+                    <li> {{ guest.username }} </li>
+                    {% endfor %}
+                </ul>
+            </div>
 		</div>
 	</section>
 {% endblock %}
