@@ -31,6 +31,16 @@
 
 							</div>
 							<div class="navbar simple">
+								<ul class="nav navbar-nav">
+									{% if request.user.is_authenticated %}
+						            <li><a href="#">Welcome {{request.user.username}}</a></li>
+						            <li><a href="{% url 'user_event' request.user.id %}">My Events</a></li>
+						            <li><a href="/logout/">Log out</a></li>
+						            {% else %}
+						            <li><a href="/login/">Sign In</a></li>
+						            <li><a href="/register/">Register</a></li>
+						            {% endif %}
+								</ul>
 							</div>
 						</nav>
 					</div>
@@ -42,30 +52,30 @@
 				<div class="container">
 					<div class="timeline-panel">
 			            <div class="timeline-heading">
-			                <h4>My Event Two</h4>
+			                <h4><a href="{% url 'event_detail' event.id %}">{{ event.title }}</a></h4>
 			            </div>
 			            <div class="timeline-body">
-			                <p class="timeline-desc col-md-6">Invitamus me testatur sed quod non dum animae tuae lacrimis ut libertatem deum rogus aegritudinis causet. Dicens hoc contra serpentibus isto.</p>
+			                <p class="timeline-desc col-md-6">{{event.description | truncatewords:20}}</p>
 			                <p class="timeline-other col-md-6">
 			                	<em class="timeline-item">
-			                	 Venue : Wembley Arena
+			                	 Venue: {{ event.venue }}
 			                	</em> 
 			                	<em class="timeline-item">
-			                	Seats : 70.00
+			                	Seats: {{ event.seats }}
 			                	</em>
 			                	<em class="timeline-item">
-			                	Ticket: $70.00
+			                	Ticket: {{ event.amount }}
 			                	</em>
 			                	<em class="timeline-item">
-			                	Date : Feb-21-2015
+			                	Date: {{ event.date }}
 			                	</em>
 			                	<em class="timeline-item">
-			                	Duration : 4 hours
+			                	Duration: {{ event.duration }}
 			                	</em>
 			                </p>
-			            </div>
-			        </div>
-		       </div>
+				        </div>
+				    </div>
+			    </div>
 	       </div>
 			<!-- Site Search box -->
 			<div class="header-cta">
@@ -89,6 +99,5 @@
                 </div>
             </div>
         </footer>
-
 	</body>
 </html>
