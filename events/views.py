@@ -6,6 +6,8 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 
+from django.contrib.auth.models import User
+
 from .models import Event
 
 def home(request):
@@ -67,3 +69,18 @@ def cancel(request, event_id):
 
     url = "%s?msg=%s" % (reverse('event_detail', args=[event_id]), message)
     return HttpResponseRedirect(url)
+
+def user_event(request, user_id):
+    event_list = Event.objects.filter(guest__id=user_id)
+    user = User.objects.get(id=user_id)
+
+    try:
+        event_list = Event.objects.filter(guest__id=user_id)
+        user = User.objects.get(id=user_id)
+    except:
+        event_list = []
+        user = {}
+
+    print(event_list)
+
+    return render(request, 'events/user_event.html', {'event_list': event_list, 'user': user})
