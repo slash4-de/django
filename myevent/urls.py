@@ -25,6 +25,8 @@ urlpatterns = [
 
     url(r'^register/$', 'events.views.register', name='register'),
     url(r'^login/$', auth_view.login, name='login', kwargs={'template_name': 'users/login.html'}),
+    url(r'^logout/$', auth_view.logout, name='logout', kwargs={'next_page': '/'}),
 
     url(r'^events/join/(?P<event_id>\d+)/$', 'events.views.join', name='event_join'),
+    url(r'^events/cancel/(?P<event_id>\d+)/$', 'events.views.cancel', name='event_cancel'),
 ]

@@ -13,7 +13,11 @@
 		</div>
 		<div class="barleft col-sm-4">
             <p clss="msg">{% if request.GET.msg %} {{request.GET.msg }} {% endif %}</p>
+            {% if not joined %}
             <a href="{% url 'event_join' event.id %}" class="btn join">Yes, Attend</a>
+            {% else %}
+            <a href="{% url 'event_cancel' event.id %}" class="btn join">No, Not Attend</a>
+            {% endif %}
 		</div>
 	</section>
 {% endblock %}

@@ -20,8 +20,9 @@ def list(request):
     return render(request, 'events/list.html', {'event_list': event_list})
 
 def detail(request, id):
-    event = Event.objects.get(id=id)
-    return render(request, 'events/detail.html', {'event': event})
+   event = Event.objects.get(id=id)
+   joined = event.guest.filter(id=request.user.id)
+   return render(request, 'events/detail.html', {'event': event, 'joined': joined})
 
 def register(request):
     if request.method == 'POST':
@@ -50,6 +51,19 @@ def join(request, event_id):
             message = "You have joined this event"
         except Event.DoesNotExist as e:
             message = "Error on event joining"
+
+    url = "%s?msg=%s" % (reverse('event_detail', args=[event_id]), message)
+    return HttpResponseRedirect(url)
+
+@login_required
+def cancel(request, event_id):
+    try:
+        event = Event.objects.get(id=event_id, guest=request.user)
+        event.guest.remove(request.user)
+        event.save()
+        message = "Your request not to attend has been saved"
+    except Event.DoesNotExist as e:
+            message = "Error on cancelling your attedance on event"
 
     url = "%s?msg=%s" % (reverse('event_detail', args=[event_id]), message)
     return HttpResponseRedirect(url)
