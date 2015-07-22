@@ -11,7 +11,7 @@ def home(request):
     return render(request, 'events/home.html', {'event': event})
 
 def list(request):
-   event_list = Event.objects.all();
+   event_list = Event.objects.all().order_by('date');
    return render(request, 'events/list.html', {'event_list': event_list})
 
 def detail(request, id):
