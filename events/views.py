@@ -54,8 +54,13 @@ def join(request, event_id):
         except Event.DoesNotExist as e:
             message = "Error on event joining"
 
-    url = "%s?msg=%s" % (reverse('event_detail', args=[event_id]), message)
-    return HttpResponseRedirect(url)
+    event = Event.objects.get(id=event_id)
+    joined = event.guest.filter(id=request.user.id)
+    return render(request, 'events/detail.html', {
+        'event': event,
+        'message': message,
+        'joined': joined
+    })
 
 @login_required
 def cancel(request, event_id):
@@ -67,8 +72,13 @@ def cancel(request, event_id):
     except Event.DoesNotExist as e:
             message = "Error on cancelling your attedance on event"
 
-    url = "%s?msg=%s" % (reverse('event_detail', args=[event_id]), message)
-    return HttpResponseRedirect(url)
+    event = Event.objects.get(id=event_id)
+    joined = event.guest.filter(id=request.user.id)
+    return render(request, 'events/detail.html', {
+        'event': event,
+        'message': message,
+        'joined': joined
+    })
 
 def user_event(request, user_id):
     event_list = Event.objects.filter(guest__id=user_id)
