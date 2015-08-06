@@ -14,7 +14,7 @@ Everything will be in the cloud - even your editor will be in the cloud. So you 
 
 Here is a small excerpt from the course:
 
-<iframe src="https://docs.google.com/presentation/d/1gan4b-ws9LKPhQ7EAQSSt5QXf8Snxe5aYtxLLllvNIQ/embed?start=true&loop=true&delayms=3000" frameborder="0" width="100%" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+https://docs.google.com/presentation/d/1gan4b-ws9LKPhQ7EAQSSt5QXf8Snxe5aYtxLLllvNIQ/embed?start=true&loop=true&delayms=3000
 
 
 #Django Model
