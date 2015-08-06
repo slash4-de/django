@@ -14,6 +14,9 @@ Everything will be in the cloud - even your editor will be in the cloud. So you 
 
 Here is a small excerpt from the course:
 
+<iframe src="https://docs.google.com/presentation/d/1gan4b-ws9LKPhQ7EAQSSt5QXf8Snxe5aYtxLLllvNIQ/embed?start=true&loop=true&delayms=3000" frameborder="0" width="100%" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+
 #Django Model
 
 The Django model is the “heart” of your Django application. It represents your data in a very clean and clear way. From this model, Django can automatically create your database and a powerful admin GUI that can handle all sorts of insert, update and delete actions.
