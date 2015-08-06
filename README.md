@@ -20,14 +20,16 @@ The Django model is the “heart” of your Django application. It represents yo
 
 Let’s take a simple example. Imagine you want to build an “Employee Database” for your company. The requirements are:
 
-    It should have an online Web GUI to enter new employees, update existing ones, delete ones leaving the company and create lists of all employes.
-    It should have a user and session management (you have to login to enter new employees).
-    It should have complex search functions (searching, filtering, ordering etc.).
-    It should sanitize all input parameters for valid type and length and implement best security practices.
-    An employee has a name, an email, gender, job title, salary and a birthdate.
+- It should have an online Web GUI to enter new employees, update existing ones, delete ones leaving the company and create lists of all employes.
+- It should have a user and session management (you have to login to enter new employees).
+- It should have complex search functions (searching, filtering, ordering etc.).
+- It should sanitize all input parameters for valid type and length and implement best security practices.
+- An employee has a name, an email, gender, job title, salary and a birthdate.
 
 How long does it take to build this application - including Database design, web frontend etc.? Days? Hours? Minutes?
 
 With Django - in this very simple example - we are talking about minutes. All you have to do is to define your model - and the rest comes for free ...
 
 ...
+
+Check out the full tutorial on http://slash4.de/learn-django/
