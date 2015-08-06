@@ -1,4 +1,4 @@
-# Learn Django in 4 hours
+# Learn Django in 4 hours - a fast track tutorial
 
 This is the public course material for a fast track django course. You will create a fully blown event website using the "Django" framework. The tutorial is seperated in 4 one hour units - so you don't need much time to get started.
 
