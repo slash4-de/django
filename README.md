@@ -6,7 +6,7 @@ The course boils down the topic to it's essentials - you will not be bored with 
 
 We will get you started right away and let you create something awesome yourself !!!
 
-Check the course on http://slash4.de/blog/learn-django-in-4-hours
+Check the course on http://slash4.net/blog/learn-django-in-4-hours
 
 In this course you are going to build your own event website - in just 4 hours. You will use an open source template to make it look professional.
 
@@ -35,4 +35,4 @@ With Django - in this very simple example - we are talking about minutes. All yo
 
 ...
 
-Check out the full tutorial on http://slash4.de/learn-django/
+Check out the full tutorial on http://slash4.net/learn-django/
